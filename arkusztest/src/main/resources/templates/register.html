@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/login_style.css}"/>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+
+<div class="banner" id="banner">
+    <h1>Forum wielbicieli psów</h1>
+</div>
+<div class="left" id="left">
+    <img th:src="@{/images/obraz.png}" alt="foksterier">
+</div>
+<div class="right" id="right">
+    <form method="POST" th:object="${user}" th:action="@{/}">
+        <h2>Zapisz się</h2>
+        <div class="formStyle">
+            <label for="login">login: </label>
+            <input class="inputs" type="text" id="login" th:field="*{username}">
+            <span class="error"
+                  th:if="${#fields.hasErrors('username')}"
+                  th:errors="*{username}">Name Error</span><br>
+
+            <label for="pswd">password: </label>
+            <input class="inputs" type="text" id="pswd" th:field="*{password}">
+            <span class="error"
+                  th:if="${#fields.hasErrors('password')}"
+                  th:errors="*{password}">Name Error</span><br>
+
+            <input class="inputs" type="submit" value="Zapisz">
+        </div>
+    </form>
+</div>
+<div class="right2" id="right2">
+    <h2>Zapraszamy wszystkich</h2>
+    <ol>
+        <li>właścicieli psów</li>
+        <li>weterynarzy</li>
+        <li>tych, co chcą kupić psa</li>
+        <li>tych, co lubią psy</li>
+    </ol>
+    <a href="regulamin.html">Przeczytaj regulamin forum</a>
+</div>
+<footer>
+    <span>Stronę wykonał: 000000000000</span>
+</footer>
+
+</body>
+</html>
